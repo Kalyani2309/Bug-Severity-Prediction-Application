@@ -1,0 +1,36 @@
+{%extends 'dashboard.html'%} {%block content%}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'stylesheets/style.css' %}" />
+<main>
+  <h1>User Profile</h1>
+  <div class="table-data">
+    <div class="order">
+      <div class="head"></div>
+      <form method="post">
+        {% csrf_token %}
+        <div>
+          <label for="{{ form.full_name.id_for_label }}">Full Name:</label>
+          {{ form.full_name }}
+        </div>
+        <div>
+          <label for="{{ form.email.id_for_label }}">Email:</label>
+          {{ form.email }}
+        </div>
+        <div>
+          <label for="{{ form.role.id_for_label }}">Role:</label>
+          {{ form.role }}
+        </div>
+        <div>
+          <label for="{{ form.assigned_to.id_for_label }}">Assigned To:</label>
+          {{ form.assigned_to }}
+        </div>
+        <br>
+        <button type="submit" class="bug-button">Save</button>
+        <button class=" bug-button"><a href="/change_password" style="color: white;">Change Password</a></button>
+        
+      </form>
+    </div>
+  </div>
+</main>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'stylesheets/login.css' %}" />
+</style>
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="center">
+  <h2>Reset Password</h2>  
+        <form method="post">
+          {% csrf_token %} {{ form.as_p }}
+          <button type="submit" class="bug-button">Reset Password</button>
+        </form>
+    </div>
+  </body>
+</html>
+
+{%endblock%}

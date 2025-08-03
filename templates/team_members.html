@@ -1,0 +1,67 @@
+{% extends 'dashboard.html'%} {%block content%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'stylesheets/style.css' %}" />
+
+ </style>
+   <main>
+     <h1>Team Members</h1>
+     <div class="table-data">
+       <div class="order">
+         <div class="head">
+           
+          
+         </div>
+         <form  clss="search-box" method="GET" style="margin-bottom: 4%; margin-top: 2%; ">
+          <input class="search" type="text" placeholder="Search" name="search"  style="display: inline;"/>
+          <button type="submit" class="bug-button" style="display: inline;">
+            Search <i class='bx bx-search-alt-2' ></i>
+            </button>
+            </form>
+         <table>
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Assigned To</th>
+            <th></th>
+          </tr>
+        </thead>
+          {%for f in members %}
+          <tr style="height: 80px">
+            <td>{{f.full_name}}</td>
+            <td>{{f.get_role_display}}</td>
+            <td>{{f.assigned_to}}</td>
+      
+            {% if user.is_project_owner%}
+            <td>
+              <a href="/dashboard/update_member/{{f.id}}"
+                ><i class="fa fa-pencil"></i
+              ></a>
+              <a href="/dashboard/delete_member/{{f.id}}"
+                ><i class="fa fa-trash"></i
+              ></a>
+            </td>
+            {%endif%}
+          </tr>
+          {%endfor%}
+        </table>
+        <div>
+          {%for page in paginator.page_range%}
+          <a href="?page={{page}}&search={{request.GET.search}}"> {{page}} </a>
+          {%endfor%}
+        </div>
+        {%if user.is_project_owner%}
+        <div>
+          <a href="/dashboard/add_team_member/"
+              ><button style="float: right" class="bug-button">
+            Add Member
+            
+          </button>
+        </a>
+        </div>
+        {%endif%}
+      </div>
+       </div>
+ </main>
+ 
+{%endblock%}

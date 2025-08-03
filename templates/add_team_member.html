@@ -1,0 +1,26 @@
+{%extends 'dashboard.html'%} {%block content%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'stylesheets/style.css' %}" />
+   <main>
+    <h1>Add New Team Member</h1>
+     <div class="table-data">
+       <div class="order">
+         <div class="head">
+         </div>
+         <table>
+          <form method="post">
+            {% csrf_token %}
+            <table>
+              {{ form.as_p }}
+              <tr>
+              </tr>
+              <input class="bug-button" type="submit" name="submit" value="Save" />
+            </table>
+          </form>
+   
+     
+         </table>
+       </div>
+     </div>
+ </main>
+{% endblock %}

@@ -1,0 +1,77 @@
+{%extends 'base2.html'%} {% block content%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'stylesheets/login.css' %}" />
+
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="center">
+      <h1>Authorized Login</h1>
+      <form method="post">
+      {%csrf_token%}
+        <div class="txt_field">
+          <input
+      style="height: 56px;border-radius: 10px;background-color: #EFF0F6; border: none;"
+      class="form-control"
+        type="text"
+        name="username"
+        autofocus
+        autocapitalize="none"
+        autocomplete="username"
+        maxlength="150"
+        required
+        placeholder="Username"
+        id="id_username"
+      />
+        </div>
+        <div class="txt_field">
+          <input
+          style="height: 56px;border-radius: 10px; background-color: #EFF0F6;border: none;"
+          class="form-control"
+            type="password"
+            name="password"
+            autocomplete="current-password"
+            required
+            placeholder="Password"
+            id="id_password"
+          />
+        </div>
+        <div class="pass">  <a href="/password_reset" style="text-decoration: none; margin-left: 80px;"> Forgot password?</a></div>
+        <input  
+      class="form-control login-btn bug-button"
+   
+     type="submit" name="submit" style=" border-radius: 5px;  " value="Login" />
+        <div class="signup_link">
+         
+        </div>
+
+        <div>
+
+   
+          {% if form.errors %}
+          {% for field in form %}
+              {% for error in field.errors %}
+                  <div class="alert alert-danger">
+                      <strong>{{ error|escape }}</strong>
+                  </div>
+              {% endfor %}
+          {% endfor %}
+          {% for error in form.non_field_errors %}
+              <div class="alert alert-danger">
+                  <strong>{{ error|escape }}</strong>
+              </div>
+          {% endfor %}
+      {% endif %}
+      </div>
+      </form>
+    </div>
+
+  </body>
+</html>
+
+{%endblock%}
