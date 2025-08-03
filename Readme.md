@@ -3,7 +3,7 @@
 
 ## Overview
 
-Buggy is an AI-powered bug prediction and management web application developed using HTML, CSS, Python, Django, and MySQL. This project simplifies bug tracking and severity prediction with user-friendly dashboards and achieved an impressive accuracy of 78%.
+BSPA is an AI-powered bug prediction and management web application developed using HTML, CSS, Python, Django, and MySQL. This project simplifies bug tracking and severity prediction with user-friendly dashboards and achieved an impressive accuracy of 78%.
 
 ## Features
 
@@ -17,11 +17,3 @@ Buggy is an AI-powered bug prediction and management web application developed u
 - HTML and CSS: Frontend development for the user interface.
 - Python and Django: Backend development and AI integration.
 - MySQL: Database management for efficient data storage.
-
-## Setup
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/sahildongre20/buggy
-cd buggy
